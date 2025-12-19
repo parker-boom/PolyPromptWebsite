@@ -1,8 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Static export for easy deployment anywhere
+  output: "export",
+
+  // Optimize images
+  images: {
+    unoptimized: true, // Required for static export
+  },
 };
 
 export default nextConfig;
-

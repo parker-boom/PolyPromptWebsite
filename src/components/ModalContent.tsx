@@ -17,11 +17,11 @@ export default function ModalContent() {
       {/* About */}
       <Section title="What to Expect">
         <p className="text-white/80 leading-relaxed">
-          Teams spend the weekend building AI-powered products focused on
+          Teams spend the weekend building AI-powered products focused around
           student life. There&apos;s an OpenAI guest speaker, hands-on
           workshops, and a lot of time to actually build. It&apos;s structured
-          but flexible — mostly you&apos;ll be heads down with your team making
-          something real.
+          but flexible — mostly you&apos;ll be heads down with your team working
+          on your project.
         </p>
       </Section>
 
@@ -35,7 +35,7 @@ export default function ModalContent() {
           />
           <InfoCard
             label="Location"
-            value="Engineering 4, Room 106"
+            value="Eng 4, Room 106 / ATL"
             subtext="Cal Poly, San Luis Obispo"
           />
         </div>
@@ -120,9 +120,9 @@ export default function ModalContent() {
       {/* Closing */}
       <Section title="Why Apply?">
         <p className="text-white/80 leading-relaxed">
-          Good chance to meet people, learn some new stuff, and build something
-          in a weekend. If it goes well, you&apos;ll have a solid project to
-          show for it.
+          Good chance to meet people, learn something new, and build an
+          impactful project in a weekend. If all goes well, you will walk away
+          with a good experience to talk about.
         </p>
       </Section>
 
