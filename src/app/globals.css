@@ -308,6 +308,18 @@ body {
   transform: scale(0.98);
 }
 
+@media (min-width: 768px) {
+  .btn-primary {
+    padding: 22px 65px;
+    font-size: 1.45rem;
+  }
+
+  .btn-secondary-strong {
+    padding: 20px 43px;
+    font-size: 1.3rem;
+  }
+}
+
 /* Cursor for typewriter */
 .typewriter-cursor {
   display: inline-block;

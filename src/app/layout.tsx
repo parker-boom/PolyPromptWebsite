@@ -1,10 +1,13 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
+const SHARE_TITLE = "Poly Prompt - Apply today";
+const SHARE_DESCRIPTION =
+  "A weekend hackathon at Cal Poly for building real AI products. Feb 13-15, 2026. Open to all majors.";
+
 export const metadata: Metadata = {
-  title: "PolyPrompt",
-  description:
-    "A weekend-long hackathon at Cal Poly focused on creating impactful AI-driven projects. Feb 13–15, 2026. Open to all majors.",
+  title: SHARE_TITLE,
+  description: SHARE_DESCRIPTION,
   keywords: [
     "hackathon",
     "Cal Poly",
@@ -17,17 +20,24 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Poly Prompt Team" }],
   openGraph: {
-    title: "PolyPrompt",
-    description:
-      "A weekend-long hackathon at Cal Poly focused on creating impactful AI-driven projects. Feb 13–15, 2026.",
+    title: SHARE_TITLE,
+    description: SHARE_DESCRIPTION,
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Poly Prompt",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "PolyPrompt",
-    description:
-      "A weekend-long hackathon at Cal Poly focused on creating impactful AI-driven projects. Feb 13–15, 2026.",
+    title: SHARE_TITLE,
+    description: SHARE_DESCRIPTION,
+    images: ["/og.png"],
   },
   robots: {
     index: true,

@@ -11,16 +11,19 @@ const GOOGLE_FORM_URL =
 
 const TYPEWRITER_PHRASES = [
   "Powered by OpenAI",
-  "Feb 13–15, 2026",
+  "Feb 13-15, 2026",
   "Applications close Jan 31",
   "All experience levels welcome",
   "50+ hackers. One weekend.",
   "Learn. Build. Ship.",
 ];
 
+const APPLICATIONS_CLOSE_AT = new Date(2026, 0, 31, 23, 59, 59);
+
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const applicationsClosed = new Date() > APPLICATIONS_CLOSE_AT;
 
   return (
     <main className="relative w-screen h-screen overflow-hidden bg-[#2a3020]">
@@ -59,27 +62,27 @@ export default function Home() {
             imageLoaded ? "animate-soft-fade delay-3200" : "opacity-0"
           }`}
         >
-          <div className="hidden md:flex items-center gap-5 lg:gap-6">
+          <div className="hidden md:flex items-center gap-5 lg:gap-6 scale-90">
             <Image
               src="/OpenAI.png"
               alt="OpenAI"
               width={200}
               height={70}
-              className="h-14 lg:h-16 xl:h-[70px] w-auto object-contain opacity-95 hover:opacity-100 transition-opacity drop-shadow-lg"
+              className="h-20 lg:h-24 xl:h-28 w-auto object-contain opacity-95 hover:opacity-100 transition-opacity drop-shadow-lg"
             />
             <Image
               src="/CSAI.png"
               alt="CS+AI Club"
               width={200}
               height={70}
-              className="h-14 lg:h-16 xl:h-[70px] w-auto object-contain opacity-95 hover:opacity-100 transition-opacity drop-shadow-lg"
+              className="h-20 lg:h-24 xl:h-28 w-auto object-contain opacity-95 hover:opacity-100 transition-opacity drop-shadow-lg"
             />
             <Image
               src="/Codebox.png"
               alt="CodeBox"
               width={160}
               height={56}
-              className="h-11 lg:h-[52px] xl:h-14 w-auto object-contain opacity-95 hover:opacity-100 transition-opacity drop-shadow-lg"
+              className="h-16 lg:h-20 xl:h-24 w-auto object-contain opacity-95 hover:opacity-100 transition-opacity drop-shadow-lg"
             />
           </div>
         </header>
@@ -139,18 +142,17 @@ export default function Home() {
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <circle cx="12" cy="12" r="10" />
-                <path d="M12 16v-4" />
-                <path d="M12 8h.01" />
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="w-5 h-5 md:w-[29px] md:h-[29px]"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 16v-4" />
+              <path d="M12 8h.01" />
               </svg>
               Learn More
             </button>
@@ -158,7 +160,7 @@ export default function Home() {
         </div>
 
         {/* Bottom Row */}
-        <footer className="flex flex-col md:flex-row justify-between items-center md:items-end gap-5 md:gap-4 px-1 sm:px-0 max-w-2xl md:max-w-none mx-auto md:mx-0 w-full md:w-auto">
+        <footer className="flex flex-col md:flex-row justify-between items-center md:items-end gap-5 md:gap-4 px-1 sm:px-0 max-w-2xl md:max-w-none mx-auto md:mx-0 w-full md:w-auto pb-[15vh] md:pb-0">
           {/* Desktop: Learn More - Left */}
           <div
             className={`hidden md:block md:ml-4 lg:ml-8 ${
@@ -171,18 +173,17 @@ export default function Home() {
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <circle cx="12" cy="12" r="10" />
-                <path d="M12 16v-4" />
-                <path d="M12 8h.01" />
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="w-5 h-5 md:w-[29px] md:h-[29px]"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 16v-4" />
+              <path d="M12 8h.01" />
               </svg>
               Learn More
             </button>
@@ -194,17 +195,23 @@ export default function Home() {
               imageLoaded ? "animate-element-rise delay-3400" : "opacity-0"
             }`}
           >
-            <span className="text-white/85 text-base sm:text-lg md:text-base font-semibold tracking-wide text-shadow">
-              February 13–15, 2026
+            <span className="text-white/85 text-[1.35rem] sm:text-[1.45rem] md:text-[1.35rem] font-semibold tracking-wide text-shadow">
+              February 13-15, 2026
             </span>
-            <a
-              href={GOOGLE_FORM_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary w-full sm:w-auto text-center"
-            >
-              Apply
-            </a>
+            {applicationsClosed ? (
+              <span className="btn-primary w-full sm:w-auto text-center opacity-60 cursor-not-allowed">
+                Applications Closed
+              </span>
+            ) : (
+              <a
+                href={GOOGLE_FORM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary w-full sm:w-auto text-center"
+              >
+                Apply
+              </a>
+            )}
           </div>
         </footer>
       </div>

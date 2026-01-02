@@ -2,8 +2,11 @@
 
 const GOOGLE_FORM_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSdbmpHZKCambSfulk0nczuE9ImYuIdE6DNY91AgCHoWsZ3PNw/viewform?usp=dialog";
+const APPLICATIONS_CLOSE_AT = new Date(2026, 0, 31, 23, 59, 59);
 
 export default function ModalContent() {
+  const applicationsClosed = new Date() > APPLICATIONS_CLOSE_AT;
+
   return (
     <div className="text-white">
       {/* Header */}
@@ -128,28 +131,33 @@ export default function ModalContent() {
 
       {/* Apply Button */}
       <div className="mt-10 pt-6 border-t border-white/10">
-        <a
-          href={GOOGLE_FORM_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-primary w-full justify-center py-4 text-lg font-semibold"
-        >
-          Apply Now
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+        {applicationsClosed ? (
+          <span className="btn-primary w-full justify-center py-4 text-lg font-semibold opacity-60 cursor-not-allowed">
+            Applications Closed
+          </span>
+        ) : (
+          <a
+            href={GOOGLE_FORM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary w-full justify-center py-4 text-lg font-semibold"
           >
-            <path d="M5 12h14" />
-            <path d="m12 5 7 7-7 7" />
-          </svg>
-        </a>
+            Apply Now
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="w-5 h-5 md:w-[29px] md:h-[29px]"
+            >
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </a>
+        )}
       </div>
     </div>
   );
