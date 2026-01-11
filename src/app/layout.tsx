@@ -6,6 +6,7 @@ const SHARE_DESCRIPTION =
   "A weekend hackathon at Cal Poly for building real AI products. Feb 20—22nd, 2026. Open to all majors.";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://polyprompt.netlify.app"),
   title: SHARE_TITLE,
   description: SHARE_DESCRIPTION,
   keywords: [

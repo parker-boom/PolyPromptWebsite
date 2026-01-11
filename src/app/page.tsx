@@ -9,6 +9,64 @@ import ModalContent from "@/components/ModalContent";
 const GOOGLE_FORM_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSdbmpHZKCambSfulk0nczuE9ImYuIdE6DNY91AgCHoWsZ3PNw/viewform?usp=dialog";
 
+const CHATGPT_PROMPT = `Hi! The user is sending this automated message because they are interested in Poly Prompt and may have questions. Act as yourself, but play the role of a helpful assistant that answers questions about the event based on the information below. If something isn't covered, clearly state that and if really needed: suggest they reach out to pjones15@calpoly.edu for specific questions (don't offer until the question is asked and you can't help). Information below. 
+
+---
+
+🦜 POLY PROMPT
+"An OpenAI Hackathon"
+https://polyprompt.netlify.app/
+
+📅 EVENT DETAILS
+• Dates: February 20–22, 2026 (Friday evening → Sunday afternoon)
+• Location: Engineering IV, Room 106, Cal Poly San Luis Obispo
+• Format: Room open during daytime hours with scheduled workshops and presentations
+• Cost: FREE to attend
+
+🎯 WHAT IT IS
+A weekend hackathon focused on building real, impactful AI products centered around student and college life. Teams work together to create polished, technically impressive, and innovative projects using AI tools (OpenAI API credits provided). Really great intro hackathon for people, as it will be super casual and focused on the projects, while lacking in some official things like prizes.
+
+🈸 APPLICATIONS
+• Open: January 4–31, 2026
+• Who: Open to all students—any major, any skill level, any university
+• Looking for: Passionate and responsible power users of AI who want to build something meaningful
+• Target: 50–60 participants selected
+• Application asks about: Your skills, focus areas, and experience with AI products
+• Note: This is the first year of the event
+
+👥 TEAMS & STRUCTURE
+• Teams of 5–7 members, pre-assigned for diversity and balance
+• You CAN request specific teammates in your application—encourage friends to apply together!
+• Each team picks a focus area: Education, Health, Community, Safety, or Creativity
+• All projects must relate to student/college life
+• Required roles per team:
+  - Tech Lead (technical direction)
+  - Product Lead (problem definition, design, feasibility)
+  - Ethics Lead (ethical considerations, responsible AI use)
+• Mix of roles needed: coding experience is valuable but non-technical skills (product, design, ethics) are equally important
+
+⏰ WEEKEND OVERVIEW
+• Friday: Kickoff, OpenAI guest speaker (virtual), team announcements
+• Saturday: Full-day workspace + hands-on workshops on OpenAI tools, lunch break encouraged
+• Sunday: Final presentations (5 min each) + awards ceremony
+• Food: Pizza Friday night, snacks throughout weekend, limited in general
+
+🏆 JUDGING & AWARDS
+• Judged on: Technical execution, product thinking, impact, and responsible AI use
+• Awards: Top 3 teams + special recognition categories
+
+🤝 SPONSORS
+Co-sponsored by OpenAI, CS+AI, and CodeBox
+
+Application link: https://docs.google.com/forms/d/1-VzOZe7wDPnNgWPRiCpLg4UeGB69FGhkntZwqTgrcy8/edit  
+
+—
+ Respond to this message, briefly by just saying you've been briefed on the event, it sounds exciting, and you're ready to answer any questions they have, and give a few options.`;
+
+const CHATGPT_URL = `https://chatgpt.com/?prompt=${encodeURIComponent(
+  CHATGPT_PROMPT
+)}`;
+
 const TYPEWRITER_PHRASES = [
   "Powered by OpenAI",
   "Feb 20—22nd, 2026",
@@ -42,7 +100,6 @@ export default function Home() {
             imageLoaded ? "opacity-100" : "opacity-0"
           }`}
           sizes="100vw"
-          quality={90}
           onLoad={() => setImageLoaded(true)}
         />
       </div>
@@ -130,40 +187,60 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Mobile: Learn More button - left aligned */}
+          {/* Mobile: Learn More & Ask ChatGPT buttons */}
           <div
-            className={`md:hidden mt-8 sm:mt-9 ${
+            className={`md:hidden mt-8 sm:mt-9 flex flex-col gap-3 w-full max-w-xs ${
               imageLoaded ? "animate-element-rise delay-2800" : "opacity-0"
             }`}
           >
             <button
               onClick={() => setIsModalOpen(true)}
-              className="btn-secondary-strong"
+              className="btn-secondary-strong w-full"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="w-5 h-5 md:w-[29px] md:h-[29px]"
-            >
-              <circle cx="12" cy="12" r="10" />
-              <path d="M12 16v-4" />
-              <path d="M12 8h.01" />
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="w-5 h-5"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 16v-4" />
+                <path d="M12 8h.01" />
               </svg>
               Learn More
             </button>
+            <a
+              href={CHATGPT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary-grey w-full"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="w-5 h-5"
+              >
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              </svg>
+              Ask ChatGPT
+            </a>
           </div>
         </div>
 
         {/* Bottom Row */}
         <footer className="flex flex-col md:flex-row justify-between items-center md:items-end gap-5 md:gap-4 px-1 sm:px-0 max-w-2xl md:max-w-none mx-auto md:mx-0 w-full md:w-auto pb-[15vh] md:pb-0">
-          {/* Desktop: Learn More - Left */}
+          {/* Desktop: Learn More & Ask ChatGPT - Left */}
           <div
-            className={`hidden md:block md:ml-4 lg:ml-8 ${
+            className={`hidden md:flex gap-4 md:ml-4 lg:ml-8 ${
               imageLoaded ? "animate-element-rise delay-3000" : "opacity-0"
             }`}
           >
@@ -176,17 +253,37 @@ export default function Home() {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="w-5 h-5 md:w-[29px] md:h-[29px]"
-            >
-              <circle cx="12" cy="12" r="10" />
-              <path d="M12 16v-4" />
-              <path d="M12 8h.01" />
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="w-5 h-5 md:w-[29px] md:h-[29px]"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 16v-4" />
+                <path d="M12 8h.01" />
               </svg>
               Learn More
             </button>
+            <a
+              href={CHATGPT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary-grey"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="w-5 h-5 md:w-[29px] md:h-[29px]"
+              >
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              </svg>
+              Ask ChatGPT
+            </a>
           </div>
 
           {/* Apply Section */}

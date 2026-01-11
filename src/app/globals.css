@@ -85,7 +85,7 @@ body {
 /* Element rise - for buttons */
 @keyframes elementRise {
   0% {
-    opacity: 0;
+    opacity: 0.01;
     transform: translateY(15px) scale(0.97);
   }
   70% {
@@ -95,6 +95,22 @@ body {
   100% {
     opacity: 1;
     transform: translateY(0) scale(1);
+  }
+}
+
+/* Glass element rise - keeps backdrop-filter visible during animation */
+@keyframes glassElementRise {
+  0% {
+    transform: translateY(15px) scale(0.97);
+    filter: brightness(0);
+  }
+  70% {
+    transform: translateY(-2px) scale(1.01);
+    filter: brightness(1);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    filter: brightness(1);
   }
 }
 
@@ -179,8 +195,13 @@ body {
 }
 
 .animate-element-rise {
-  opacity: 0;
+  opacity: 0.01;
   animation: elementRise 0.8s var(--spring-timing) forwards;
+}
+
+.animate-glass-rise {
+  filter: brightness(0);
+  animation: glassElementRise 0.8s var(--spring-timing) forwards;
 }
 
 .animate-backdrop {
@@ -280,31 +301,61 @@ body {
   transform: scale(0.98);
 }
 
-/* Button styling - Secondary Strong (Learn More) */
+/* Button styling - Secondary Strong (Learn More - Green Tint) */
 .btn-secondary-strong {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(120, 180, 100, 0.28);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   color: white;
   font-weight: 600;
   padding: 16px 32px;
   font-size: 1.1rem;
   letter-spacing: 0.01em;
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(150, 220, 120, 0.45);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   transition: all 0.25s ease;
 }
 
 .btn-secondary-strong:hover {
-  background: rgba(255, 255, 255, 0.28);
-  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(140, 200, 120, 0.35);
+  border-color: rgba(180, 240, 140, 0.6);
   transform: scale(1.02);
 }
 
 .btn-secondary-strong:active {
+  transform: scale(0.98);
+}
+
+/* Button styling - Secondary Grey (Ask ChatGPT - Grey Tint) */
+.btn-secondary-grey {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: rgba(140, 140, 140, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: white;
+  font-weight: 600;
+  padding: 16px 32px;
+  font-size: 1.1rem;
+  letter-spacing: 0.01em;
+  border: 1px solid rgba(180, 180, 180, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.25s ease;
+}
+
+.btn-secondary-grey:hover {
+  background: rgba(160, 160, 160, 0.25);
+  border-color: rgba(200, 200, 200, 0.45);
+  transform: scale(1.02);
+}
+
+.btn-secondary-grey:active {
   transform: scale(0.98);
 }
 
@@ -315,6 +366,11 @@ body {
   }
 
   .btn-secondary-strong {
+    padding: 20px 43px;
+    font-size: 1.3rem;
+  }
+
+  .btn-secondary-grey {
     padding: 20px 43px;
     font-size: 1.3rem;
   }
