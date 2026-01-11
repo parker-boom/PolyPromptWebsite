@@ -3,7 +3,7 @@ import "./globals.css";
 
 const SHARE_TITLE = "Poly Prompt - Apply today";
 const SHARE_DESCRIPTION =
-  "A weekend hackathon at Cal Poly for building real AI products. Feb 13-15, 2026. Open to all majors.";
+  "A weekend hackathon at Cal Poly for building real AI products. Feb 20—22nd, 2026. Open to all majors.";
 
 export const metadata: Metadata = {
   title: SHARE_TITLE,

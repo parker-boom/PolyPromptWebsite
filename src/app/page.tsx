@@ -11,10 +11,10 @@ const GOOGLE_FORM_URL =
 
 const TYPEWRITER_PHRASES = [
   "Powered by OpenAI",
-  "Feb 13-15, 2026",
+  "Feb 20—22nd, 2026",
   "Applications close Jan 31",
   "All experience levels welcome",
-  "50+ hackers. One weekend.",
+  "50+ participants. One weekend.",
   "Learn. Build. Ship.",
 ];
 
@@ -196,7 +196,7 @@ export default function Home() {
             }`}
           >
             <span className="text-white/85 text-[1.35rem] sm:text-[1.45rem] md:text-[1.35rem] font-semibold tracking-wide text-shadow">
-              February 13-15, 2026
+              Feb 20—22nd, 2026
             </span>
             {applicationsClosed ? (
               <span className="btn-primary w-full sm:w-auto text-center opacity-60 cursor-not-allowed">

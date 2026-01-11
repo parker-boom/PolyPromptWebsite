@@ -33,12 +33,12 @@ export default function ModalContent() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <InfoCard
             label="Date"
-            value="Feb 13–15, 2026"
+            value="Feb 20—22nd, 2026"
             subtext="Friday evening → Sunday afternoon"
           />
           <InfoCard
             label="Location"
-            value="Eng 4, Room 106 / ATL"
+            value="Engineering IV, 106"
             subtext="Cal Poly, San Luis Obispo"
           />
         </div>
@@ -50,7 +50,7 @@ export default function ModalContent() {
           <li className="flex gap-3">
             <span className="text-amber-400/70 mt-0.5">→</span>
             <span>
-              <strong className="text-white">50–60 participants</strong>{" "}
+              <strong className="text-white">50+ participants</strong>{" "}
               selected from applicants
             </span>
           </li>

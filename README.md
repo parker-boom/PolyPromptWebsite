@@ -1,6 +1,6 @@
 # Poly Prompt
 
-Landing page for Poly Prompt — an OpenAI hackathon at Cal Poly (Feb 13–15, 2026).
+Landing page for Poly Prompt — an OpenAI hackathon at Cal Poly (Feb 20—22nd, 2026).
 
 ## Run Locally
 
