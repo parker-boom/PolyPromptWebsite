@@ -1,12 +1,6 @@
 "use client";
 
-const GOOGLE_FORM_URL =
-  "https://docs.google.com/forms/d/e/1FAIpQLSdbmpHZKCambSfulk0nczuE9ImYuIdE6DNY91AgCHoWsZ3PNw/viewform?usp=dialog";
-const APPLICATIONS_CLOSE_AT = new Date(2026, 0, 31, 23, 59, 59);
-
 export default function ModalContent() {
-  const applicationsClosed = new Date() > APPLICATIONS_CLOSE_AT;
-
   return (
     <div className="text-white">
       {/* Header */}
@@ -15,6 +9,13 @@ export default function ModalContent() {
           Poly Prompt
         </h2>
         <p className="text-lg text-white/70">An OpenAI Hackathon at Cal Poly</p>
+      </div>
+
+      {/* Status Banner */}
+      <div className="mb-8 p-4 bg-white/5 rounded-xl border border-white/10">
+        <p className="text-white/90 text-center font-medium">
+          Applications are closed. Teams announced soon.
+        </p>
       </div>
 
       {/* About */}
@@ -57,14 +58,13 @@ export default function ModalContent() {
           <li className="flex gap-3">
             <span className="text-amber-400/70 mt-0.5">→</span>
             <span>
-              Teams of 5–7, auto-assigned based on your preferences (teammate
-              requests welcome)
+              Teams of 5–7, assigned for diversity and skill balance
             </span>
           </li>
           <li className="flex gap-3">
             <span className="text-amber-400/70 mt-0.5">→</span>
             <span>
-              Pick a focus area:{" "}
+              Focus areas:{" "}
               <span className="text-white/90">
                 Education, Health, Community, Safety, or Creativity
               </span>
@@ -73,7 +73,7 @@ export default function ModalContent() {
           <li className="flex gap-3">
             <span className="text-amber-400/70 mt-0.5">→</span>
             <span>
-              Each team assigns roles:{" "}
+              Team roles:{" "}
               <span className="text-white/90">
                 Tech Lead, Product Lead, Ethics Lead
               </span>
@@ -85,22 +85,6 @@ export default function ModalContent() {
       {/* Logistics */}
       <Section title="Good to Know">
         <ul className="space-y-3 text-white/80">
-          <li className="flex gap-3">
-            <span className="text-amber-400/70 mt-0.5">→</span>
-            <span>
-              <strong className="text-white">
-                All majors & experience levels
-              </strong>{" "}
-              encouraged to apply
-            </span>
-          </li>
-          <li className="flex gap-3">
-            <span className="text-amber-400/70 mt-0.5">→</span>
-            <span>
-              <strong className="text-white">Applications close Jan 31</strong>{" "}
-              — decisions out the first week of February
-            </span>
-          </li>
           <li className="flex gap-3">
             <span className="text-amber-400/70 mt-0.5">→</span>
             <span>
@@ -121,44 +105,11 @@ export default function ModalContent() {
       </Section>
 
       {/* Closing */}
-      <Section title="Why Apply?">
+      <Section title="What&apos;s Next">
         <p className="text-white/80 leading-relaxed">
-          Good chance to meet people, learn something new, and build an
-          impactful project in a weekend. If all goes well, you will walk away
-          with a good experience to talk about.
+          Accepted participants will be notified soon with team assignments and event details. Get ready to build something meaningful.
         </p>
       </Section>
-
-      {/* Apply Button */}
-      <div className="mt-10 pt-6 border-t border-white/10">
-        {applicationsClosed ? (
-          <span className="btn-primary w-full justify-center py-4 text-lg font-semibold opacity-60 cursor-not-allowed">
-            Applications Closed
-          </span>
-        ) : (
-          <a
-            href={GOOGLE_FORM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary w-full justify-center py-4 text-lg font-semibold"
-          >
-            Apply Now
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="w-5 h-5 md:w-[29px] md:h-[29px]"
-            >
-              <path d="M5 12h14" />
-              <path d="m12 5 7 7-7 7" />
-            </svg>
-          </a>
-        )}
-      </div>
     </div>
   );
 }

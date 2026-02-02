@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
-const SHARE_TITLE = "Poly Prompt - Apply today";
+const SHARE_TITLE = "Poly Prompt - Feb 20—22, 2026";
 const SHARE_DESCRIPTION =
-  "A weekend hackathon at Cal Poly for building real AI products. Feb 20—22nd, 2026. Open to all majors.";
+  "A weekend hackathon at Cal Poly for building real AI products. 50+ builders selected. See you Feb 20th.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://polyprompt.netlify.app"),
